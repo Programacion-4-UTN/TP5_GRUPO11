@@ -1,0 +1,53 @@
+.menu {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    flex-shrink: 0;
+    padding: 20px 12px;
+    background: #2f6bff;
+    color: #ffffff;
+}
+
+.menu h2 {
+    margin: 0 0 20px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.menu nav {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 6px;
+}
+
+.menu a {
+    padding: 10px 12px;
+    border-radius: 6px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.menu a:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.menu a.activo {
+    background: #1f4fc4;
+}
+
+/* Cerrar sesion: queda abajo de todo */
+.menu a.salir {
+    background: white;
+    color: #2f6bff;
+    margin-top: auto;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    text-align: center;
+}
+
+.menu a.salir:hover {
+    background: #2f6bff;
+    color: white;
+}
