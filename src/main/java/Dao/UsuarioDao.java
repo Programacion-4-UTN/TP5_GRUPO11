@@ -15,8 +15,8 @@ public class UsuarioDao implements IUsuarioDao {
         PreparedStatement pst = null;
         ResultSet rs = null;
 
-        // Asumiendo tabla 'usuarios' con campos: idUsuario, usuario, contrasena
-        String query = "SELECT idUsuario, usuario, contrasena FROM usuarios WHERE usuario = ? AND contrasena = ?";
+        // Tabla 'usuarios' (script de la cátedra): id_usuario, usuario, contrasena
+        String query = "SELECT id_usuario, usuario, contrasena FROM usuarios WHERE usuario = ? AND contrasena = ?";
 
         try {
             if (cn != null) {
@@ -27,7 +27,7 @@ public class UsuarioDao implements IUsuarioDao {
 
                 if (rs.next()) {
                     usuario = new Usuario();
-                    usuario.setIdUsuario(rs.getInt("idUsuario"));
+                    usuario.setIdUsuario(rs.getInt("id_usuario"));
                     usuario.setUsuario(rs.getString("usuario"));
                     usuario.setContrasena(rs.getString("contrasena"));
                 }
