@@ -9,7 +9,7 @@ import Entidades.Cliente;
 public class ClienteNegocio implements IClienteNegocio {
     
     // instancia de DAO para comunicar con la bd
-    private IClienteDao clienteDao = new ClienteDao();
+    private ClienteDao clienteDao = new ClienteDao();
 
     @Override
     public boolean agregarCliente(Cliente cliente) {

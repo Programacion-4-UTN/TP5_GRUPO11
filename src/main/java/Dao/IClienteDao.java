@@ -1,5 +1,9 @@
 package Dao;
 
-public class IClienteDao {
+import java.util.List;
+import Entidades.Cliente;
 
+public interface IClienteDao {
+    boolean insertarCliente(Cliente c);
+    List<Cliente> listarClientes();
 }

@@ -3,7 +3,7 @@
     <h2>Menú</h2>
     <nav>
 
-        <a href="${pageContext.request.contextPath}/AltaCliente.jsp"
+        <a href="${pageContext.request.contextPath}/altaCliente.jsp"
            class="${param.activo == 'alta' ? 'activo' : ''}">Alta de Cliente</a>
         <a href="${pageContext.request.contextPath}/ListarClientes.jsp"
            class="${param.activo == 'listado' ? 'activo' : ''}">Listado de Clientes</a>         
