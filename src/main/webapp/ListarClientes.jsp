@@ -18,6 +18,13 @@
     <main class="contenido">
         <h2>Listado de Clientes</h2>
         <p>Usuario: <strong>${sessionScope.usuarioLogueado}</strong></p>
+        
+        <c:if test="${not empty exitoEliminar}">
+            <p style="color: green; font-weight: bold;">${exitoEliminar}</p>
+        </c:if>
+        <c:if test="${not empty errorEliminar}">
+            <p style="color: red; font-weight: bold;">${errorEliminar}</p>
+        </c:if>
 
         <table id="tablaClientes" class="display">
             <thead>
@@ -31,6 +38,7 @@
                     <th>Nacionalidad</th>
                     <th>Localidad</th>
                     <th>Provincia</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -46,6 +54,15 @@
                         <td>${c.nacionalidad}</td>
                         <td>${c.localidad}</td>
                         <td>${c.provincia}</td>
+                        
+                        <td>
+                            <a href="${pageContext.request.contextPath}/ServletCliente?accion=eliminar&id=${c.idCliente}" 
+                               onclick="return confirm('¿Está seguro que desea eliminar a este cliente?');" 
+                               style="color: white; background-color: red; padding: 5px 10px; text-decoration: none; border-radius: 5px;">
+                               Eliminar
+                            </a>
+                        </td>
+                        
                     </tr>
                 </c:forEach>
             </tbody>

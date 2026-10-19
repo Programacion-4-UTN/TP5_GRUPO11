@@ -20,4 +20,9 @@ public class ClienteNegocio implements IClienteNegocio {
     public List<Cliente> obtenerTodos() {
         return clienteDao.listarClientes();
     }
+    
+    @Override
+    public boolean eliminarCliente(int id) {
+        return clienteDao.eliminarCliente(id);
+    }
 }

@@ -7,4 +7,5 @@ import Entidades.Cliente;
 public interface IClienteNegocio {
     boolean agregarCliente(Cliente cliente);
     List<Cliente> obtenerTodos();
+    boolean eliminarCliente(int id);
 }

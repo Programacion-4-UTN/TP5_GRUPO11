@@ -18,7 +18,23 @@ public class ServletCliente extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // para cargar la tabla de ListarClientes.jsp
+    	String accion = request.getParameter("accion");
+        
+        if ("eliminar".equals(accion)) {
+            String idString = request.getParameter("id");
+            if (idString != null && !idString.isEmpty()) {
+                int idCliente = Integer.parseInt(idString);
+                boolean eliminado = clienteNegocio.eliminarCliente(idCliente);
+                
+                if (eliminado) {
+                    request.setAttribute("exitoEliminar", "El cliente fue eliminado correctamente.");
+                } else {
+                    request.setAttribute("errorEliminar", "No se pudo eliminar el cliente.");
+                }
+            }
+        }
+    	
+    	// para cargar la tabla de ListarClientes.jsp
         List<Cliente> clientes = clienteNegocio.obtenerTodos();
         request.setAttribute("listaClientes", clientes);
         request.getRequestDispatcher("/ListarClientes.jsp").forward(request, response);

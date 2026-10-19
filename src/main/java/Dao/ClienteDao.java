@@ -100,4 +100,33 @@ public class ClienteDao implements IClienteDao {
         }
         return lista;
     }
+    
+    @Override
+    public boolean eliminarCliente(int id) {
+        boolean filasAfectadas = false;
+        String query = "DELETE FROM clientes WHERE id_cliente = ?";
+        Connection cn = null;
+        PreparedStatement pst = null;
+
+        try {
+            cn = Conexion.obtenerConexion();
+            if (cn != null) {
+                pst = cn.prepareStatement(query);
+                pst.setInt(1, id);
+                if (pst.executeUpdate() > 0) {
+                    filasAfectadas = true;
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("Error en eliminarCliente: " + e.getMessage());
+        } finally {
+            try {
+                if (pst != null) pst.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            Conexion.cerrarConexion(cn);
+        }
+        return filasAfectadas;
+    }
 }
